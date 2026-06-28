@@ -14,6 +14,6 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/twrp_spinel.mk
+PRODUCT_MAKEFILES := $(LOCAL_DIR)/fox_spinel.mk
 
-COMMON_LUNCH_CHOICES := twrp_spinel-eng
+COMMON_LUNCH_CHOICES := fox_spinel-eng
