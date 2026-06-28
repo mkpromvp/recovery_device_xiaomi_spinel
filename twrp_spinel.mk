@@ -18,7 +18,7 @@
 PRODUCT_RELEASE_NAME := spinel
 
 # Device path for OEM device tree
-DEVICE_PATH := device/Xiaomi/spinel
+DEVICE_PATH := device/xiaomi/spinel
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, $(DEVICE_PATH)/device.mk)
