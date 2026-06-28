@@ -24,12 +24,12 @@ DEVICE_PATH := device/Xiaomi/spinel
 $(call inherit-product, $(DEVICE_PATH)/device.mk)
 
 # Inherit some common TWRP stuff.
-$(call inherit-product, vendor/twrp/config/common.mk)
+$(call inherit-product, vendor/fox/config/common.mk)
 
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := spinel
-PRODUCT_NAME := twrp_spinel
+PRODUCT_NAME := fox_spinel
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := 2510DRA23E
 PRODUCT_MANUFACTURER := Xiaomi
