@@ -15,6 +15,12 @@
 /dev/block/by-name/proinfo /proinfo emmc defaults defaults
 /dev/block/by-name/lk /bootloader emmc defaults defaults
 /dev/block/by-name/lk2 /bootloader2 emmc defaults defaults
+/dev/block/by-name/init_boot /init_boot emmc defaults defaults
+/dev/block/by-name/gz1 /gz1 emmc defaults defaults
+/dev/block/by-name/gz2 /gz2 emmc defaults defaults
+/dev/block/by-name/ccu /ccu emmc defaults defaults
+/dev/block/by-name/vcp /vcp emmc defaults defaults
+/dev/block/by-name/gpueb /gpueb emmc defaults defaults
 /dev/block/by-name/seccfg /seccfg emmc defaults defaults
 /dev/block/by-name/tee1 /tee1 emmc defaults defaults
 /dev/block/by-name/tee2 /tee2 emmc defaults defaults
