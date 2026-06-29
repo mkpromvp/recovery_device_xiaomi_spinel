@@ -167,5 +167,8 @@ TARGET_OTA_ASSERT_DEVICE := spinel
 
 # Init
 
+# OrangeFox vendor_boot recovery
+FOX_VENDOR_BOOT_RECOVERY := 1
+
 # TWRP Configs
 TW_DEVICE_VERSION := YFMARCO-Dev
