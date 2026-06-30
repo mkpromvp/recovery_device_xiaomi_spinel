@@ -30,6 +30,6 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := spinel
 PRODUCT_NAME := twrp_spinel
-PRODUCT_BRAND := Xiaomi
+PRODUCT_BRAND := xiaomi
 PRODUCT_MODEL := 2510DRA23E
 PRODUCT_MANUFACTURER := Xiaomi
