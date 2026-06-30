@@ -89,29 +89,32 @@ service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
 
 service vendor.vibrator-default /vendor/bin/hw/android.hardware.vibrator-service.mediatek
     class hal
-    user root
-    group root system
+    user system
+    group system
     seclabel u:r:recovery:s0
 
-service touchfeature-hal-1-0 /vendor/bin/hw/vendor.xiaomi.hardware.touchfeature@1.0-service
+service vendor.health-default /vendor/bin/hw/android.hardware.health-service.example
+    class hal
+    user system
+    group system
+    capabilities WAKE_ALARM BLOCK_SUSPEND
+
+service touchfeature-hal-1-0 /vendor/bin/hw/vendor.xiaomi.hw.touchfeature-service
     class main
     user root
     group root
-    onrestart restart touchfeature-hal-1-0
     seclabel u:r:recovery:s0
 
-service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
-    interface android.hardware.gatekeeper@1.0::IGatekeeper default
-    user root
-    group root
+service vendor.gatekeeper-mitee /vendor/bin/hw/android.hardware.gatekeeper-service.mitee
+    user system
+    group system
     disabled
     seclabel u:r:recovery:s0
 
-service vendor.keymint-mitee /vendor/bin/hw/android.hardware.security.keymint@1.0-service.mitee
-    interface android.hardware.keymaster@4.0::IKeymasterDevice default
-    interface android.hardware.keymaster@4.1::IKeymasterDevice default
-    user root
-    group root drmrpc
+service vendor.keymint-mitee /vendor/bin/hw/android.hardware.security.keymint@4.0-service.mitee
+    class early_hal
+    user system
+    group system drmrpc
     disabled
     oneshot
     seclabel u:r:recovery:s0
@@ -120,23 +123,23 @@ on property:crypto.ready=1
     start vendor.keymint-mitee
 
 on property:hwservicemanager.ready=true
-    start gatekeeper-1-0
+    start vendor.gatekeeper-mitee
     start vendor.keymint-mitee
 
 on property:ro.crypto.state=unsupported
-    stop gatekeeper-1-0
+    stop vendor.gatekeeper-mitee
     stop vendor.keymint-mitee
 
 on property:ro.crypto.state=unencrypted
-    stop gatekeeper-1-0
+    stop vendor.gatekeeper-mitee
     stop vendor.keymint-mitee
 
 on property:twrp.decrypt.done=true
-    stop gatekeeper-1-0
+    stop vendor.gatekeeper-mitee
     stop vendor.keymint-mitee
 
 on property:crypto.ready=0
-    stop gatekeeper-1-0
+    stop vendor.gatekeeper-mitee
     stop vendor.keymint-mitee
 
 on post-fs-data
