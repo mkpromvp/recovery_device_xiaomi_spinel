@@ -99,7 +99,7 @@ TARGET_BOARD_PLATFORM := mt6789
 BOARD_VNDK_VERSION := current
 
 # Modules
-TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/recovery/root/lib/modules) $(shell ls $(DEVICE_PATH)/recovery/root/vendor/lib/modules)\")
+TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/recovery/root/lib/modules)\")
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
@@ -118,8 +118,6 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Crypto
-TW_INCLUDE_CRYPTO := false
-TW_INCLUDE_CRYPTO_FBE := false
 TW_USE_FSCRYPT_POLICY := 2
 TW_FORCE_KEYMASTER_VER := 4.0
 OF_DEFAULT_KEYMASTER_VERSION := 4.0
@@ -139,7 +137,7 @@ TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_LPTOOLS := true
 
 # TWRP Configs
-TW_DEFAULT_BRIGHTNESS := 80
+TW_DEFAULT_BRIGHTNESS := 1200
 TW_EXCLUDE_APEX := true
 TW_EXCLUDE_LPDUMP := true
 TW_EXTRA_LANGUAGES := true
@@ -148,9 +146,19 @@ TW_THEME := portrait_hdpi
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 TARGET_USES_MKE2FS := true
-TW_MAX_BRIGHTNESS := 255
+TW_MAX_BRIGHTNESS := 2020
 TW_USE_LEDS_HAPTICS := true
 TW_LOAD_VENDOR_BOOT_MODULES := true
+TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+TW_SCREEN_BLANK_ON_BOOT := true
+TW_NO_SCREEN_BLANK := true
+TW_HAS_MTP := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file
+RECOVERY_SDCARD_ON_DATA := true
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_FBE := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
+TW_SUPPORT_INPUT_AIDL_HAPTICS := true
 
 # Hack depends
 ALLOW_MISSING_DEPENDENCIES := true
