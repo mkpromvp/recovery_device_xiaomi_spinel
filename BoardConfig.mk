@@ -165,8 +165,5 @@ HAVE_SELINUX := true
 # Assert
 TARGET_OTA_ASSERT_DEVICE := spinel
 
-# Init
-TARGET_INIT_VENDOR_LIB := libinit_xiaomi-spinel
-TARGET_RECOVERY_DEVICE_MODULES := libinit_xiaomi-spinel
 # TWRP Configs
 TW_DEVICE_VERSION := MkProMVP
