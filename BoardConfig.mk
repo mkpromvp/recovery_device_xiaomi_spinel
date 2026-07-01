@@ -102,7 +102,7 @@ BOARD_VNDK_VERSION := current
 TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/recovery/root/lib/modules) $(shell ls $(DEVICE_PATH)/recovery/root/vendor/lib/modules)\")
 
 # Recovery modules
-TARGET_RECOVERY_DEVICE_MODULES := libpixelflinger
+TARGET_RECOVERY_DEVICE_MODULES := libkeystore2_aaid
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
